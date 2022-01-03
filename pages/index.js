@@ -1,14 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { star } from "../variants";
 
 export default function Home() {
-  const slideTransition = {
-    type: "tween",
-    ease: "anticipate",
-    duration: 4,
-  };
-
   return (
     <div>
       <Head>
@@ -35,26 +30,30 @@ export default function Home() {
                 Builds Stuff
               </p>
             </div>
-            <div className="">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={slideTransition}
-              >
-                <Image src="/icons/Education.png" height={50} width={50} />
-              </motion.div>
-              <div className="">
-                <Image src="/icons/Contact.png" height={50} width={50} />
+            <div className="flex flex-col justify-evenly ">
+              <div className="flex flex-row justify-evenly">
+                <motion.div
+                  variants={star}
+                  initial="initial"
+                  animate="animate"
+                  className="hover:border hover:border-2 border-blue-800 rounded-3xl p-1.5"
+                >
+                  <Image src="/icons/Education.png" height={50} width={50} />
+                </motion.div>
+                <div className="hover:border hover:border-2 border-blue-800 rounded-3xl p-1.5">
+                  <Image src="/icons/Skills.png" height={50} width={50} />
+                </div>
+                <div className="hover:border hover:border-2 border-blue-800 rounded-3xl p-1.5">
+                  <Image src="/icons/Projects.png" height={50} width={50} />
+                </div>
               </div>
-              <div className="">
-                <Image src="/icons/Skills.png" height={50} width={50} />
-              </div>
-              <div className="">
-                <Image src="/icons/Projects.png" height={50} width={50} />
-              </div>
-              <div className="">
-                <Image src="/icons/Hobby.png" height={50} width={50} />
+              <div className="flex flex-row justify-evenly ">
+                <div className="hover:border hover:border-2 border-blue-500 rounded-3xl p-1.5">
+                  <Image src="/icons/Hobby.png" height={50} width={50} />
+                </div>
+                <div className="hover:border hover:border-2 border-blue-500 rounded-3xl p-1.5">
+                  <Image src="/icons/Contact.png" height={50} width={50} />
+                </div>
               </div>
             </div>
           </div>
